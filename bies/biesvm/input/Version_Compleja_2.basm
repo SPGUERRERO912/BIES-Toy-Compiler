@@ -1,0 +1,21 @@
+; Author Joel Ramirez, Marco Leandro, Sebastian Peñaranda, Valentina Hernández
+$FUN $0 args : 0 parent : $0
+LDV 666 ; cargar entero 666
+LDV 664 ; cargar entero 664
+SUB ; Restar
+BST 0 0 ; guardamos version
+LDF $1
+APP 1 ; Ejecutamos splash con 1 argumentos
+LDV "Hello World!" ; cargar string "Hello World!"
+PRN ; print valor cargado
+HLT ; finalización del programa
+$END $0
+$FUN $1 args : 1 parent : $0
+LDV "Testing helloworld Version " ; cargar string "Testing helloworld Version "
+BLD 0 0 ; cargar version
+CAT ; Concatenar cadenas
+LDV "***" ; cargar string "***"
+CAT ; Concatenar cadenas
+PRN ; print valor cargado
+RET ; Fin de la función
+$END $1

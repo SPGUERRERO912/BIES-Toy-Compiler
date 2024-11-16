@@ -1,0 +1,7 @@
+let q = 5
+let {
+	const greetings = () => 20+20
+} in print(greetings())
+print("Imprimiendo separacion de let in")
+let {
+} in print("Testing let in.....")

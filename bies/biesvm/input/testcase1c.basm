@@ -1,0 +1,29 @@
+; Author Joel Ramirez, Marco Leandro, Sebastian Peñaranda, Valentina Hernández
+$FUN $0 args : 0 parent : $0
+LDV 5 ; cargar entero 5
+BST 0 0 ; guardamos q
+LDF $1
+APP 1 ; Ejecutamos let-in con 1 argumentos
+LDV "Imprimiendo separacion de let in" ; cargar string "Imprimiendo separacion de let in"
+PRN ; print valor cargado
+LDF $3
+APP 0 ; Ejecutamos let-in con 0 argumentos
+HLT ; finalización del programa
+$END $0
+$FUN $1 args : 1 parent : $0
+LDF $2
+APP 0 ; Ejecutamos greetings con 0 argumentos
+PRN ; print valor cargado
+RET ; Fin de la función
+$END $1
+$FUN $2 args : 0 parent : $1
+LDV 20 ; cargar entero 20
+LDV 20 ; cargar entero 20
+ADD ; Sumar entero
+RET ; Fin de la función
+$END $2
+$FUN $3 args : 0 parent : $0
+LDV "Testing let in....." ; cargar string "Testing let in....."
+PRN ; print valor cargado
+RET ; Fin de la función
+$END $3

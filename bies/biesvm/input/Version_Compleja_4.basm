@@ -1,0 +1,35 @@
+; Author Joel Ramirez, Marco Leandro, Sebastian Peñaranda, Valentina Hernández
+$FUN $0 args : 0 parent : $0
+LDF $1
+APP 2 ; Ejecutamos let-in con 2 argumentos
+HLT ; finalización del programa
+$END $0
+$FUN $1 args : 2 parent : $0
+LDV 4 ; cargar entero 4
+LDV 4 ; cargar entero 4
+MUL ; Multiplicar
+LDV 3 ; cargar entero 3
+LDV 1 ; cargar entero 1
+ADD ; Sumar entero
+DIV ; Dividir
+BST 0 0 ; guardamos version
+LDF $2
+APP 1 ; Ejecutamos splash con 1 argumentos
+LDF $3
+APP 0 ; Ejecutamos greetings con 0 argumentos
+PRN ; print valor cargado
+RET ; Fin de la función
+$END $1
+$FUN $2 args : 1 parent : $1
+LDV "Testing helloworld Version " ; cargar string "Testing helloworld Version "
+BLD 1 0 ; cargar version
+CAT ; Concatenar cadenas
+LDV " ***" ; cargar string " ***"
+CAT ; Concatenar cadenas
+PRN ; print valor cargado
+RET ; Fin de la función
+$END $2
+$FUN $3 args : 0 parent : $1
+LDV "Hello World!" ; cargar string "Hello World!"
+RET ; Fin de la función
+$END $3

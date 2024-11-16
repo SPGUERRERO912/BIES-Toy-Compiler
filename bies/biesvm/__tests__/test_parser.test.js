@@ -23,14 +23,17 @@ describe('BASM VM Test Cases', () => {
   ];
 
   testCases.forEach(({ input, expected }, index) => {
-    test(`Test case ${index + 1}`, () => {
-        const originalConsoleLog = console.log; 
+    test(`Test case ${index++}`, () => {
+        let originalConsoleLog = console.log; 
         console.log = jest.fn();
-      
+        //console.log(`Captured output for test case ${index + 1}:`, console.log.mock.calls);
+       // originalConsoleLog('Input:', JSON.stringify(input, null, 2));
         test_parser(input);
-        console.log(`Captured output for test case ${index + 1}:`, console.log.mock.calls);
-        const output = console.log.mock.calls.map(call => call[0]).join('\n');
         
+        let output = console.log.mock.calls.map(call => call[0]).join('\n');
+        
+
+        console.log = originalConsoleLog;
 
         originalConsoleLog('Output:', JSON.stringify(output, null, 2));
         originalConsoleLog('Expected:', JSON.stringify(fs.readFileSync(expected, 'utf-8').trim(), null, 2));
@@ -40,4 +43,9 @@ describe('BASM VM Test Cases', () => {
         expect(compareOutputs(output, expected)).toBe(true);
     });
   });
+  
+  
+
+
+
 });

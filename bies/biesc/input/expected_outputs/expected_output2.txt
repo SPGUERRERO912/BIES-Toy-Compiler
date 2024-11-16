@@ -1,0 +1,8 @@
+; Author Joel Ramirez, Marco Leandro, Sebastian Peñaranda, Valentina Hernández
+$FUN $0 args : 0 parent : $0
+LDV "Testing helloworld Version 0 ***" ; cargar string "Testing helloworld Version 0 ***"
+PRN ; print valor cargado
+LDV "Hello World!" ; cargar string "Hello World!"
+PRN ; print valor cargado
+HLT ; finalización del programa
+$END $0
