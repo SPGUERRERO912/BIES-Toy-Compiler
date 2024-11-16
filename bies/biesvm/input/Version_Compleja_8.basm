@@ -1,0 +1,25 @@
+; Author Joel Ramirez, Marco Leandro, Sebastian Peñaranda, Valentina Hernández
+$FUN $0 args : 0 parent : $0
+LDF $1
+APP 1 ; Ejecutamos let-in con 1 argumentos
+HLT ; finalización del programa
+$END $0
+$FUN $1 args : 1 parent : $0
+LDV [1,2,3,"Hello World!",5,6,7] ; cargar lista [1,2,3,"Hello World!",5,6,7]
+BST 0 0 ; guardamos a
+LDV "*** Testing List Access (" ; cargar string "*** Testing List Access ("
+BLD 0 0 ; cargar a
+CAT ; Concatenar cadenas
+LDV ") ***" ; cargar string ") ***"
+CAT ; Concatenar cadenas
+PRN ; print valor cargado
+BLD 0 0 ; cargar a
+BLD 0 0 ; cargar a
+LDV 0 ; cargar entero 0
+LTK ; extraer valor de la lista
+LDV 2 ; cargar entero 2
+ADD ; Sumar entero
+LTK ; extraer valor de la lista
+PRN ; print valor cargado
+RET ; Fin de la función
+$END $1

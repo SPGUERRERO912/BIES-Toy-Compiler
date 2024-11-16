@@ -46,8 +46,12 @@ export class VM {
             const str = value.replace(/^"|"$/g, ''); // Remover comillas dobles
             this.register.push(str);
           } else {
-            // Si no es ni número ni cadena, asumimos que es una lista
-            const valueArr = value ? value.split(',').map(Number) : []; // Convertir a lista de números
+             // Si no es ni número ni cadena, asumimos que es una lista
+              const valueArr = value ? value.split(',').map(item => { 
+              const trimmed = item.trim(); 
+              return !isNaN(trimmed) && trimmed !== '' ? Number(trimmed) : trimmed;
+            })
+            : []
             this.register.push(valueArr);
           }
         },

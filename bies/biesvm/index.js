@@ -17,11 +17,10 @@ const outfile = options.o;
 const errfile = options.e;
 const inputFile = program.args[0];
 const traceLevel = parseInt(options.trace, 10);
-
-console.log(`Outfile: ${outfile}`);
-console.log(`Errfile: ${errfile}`);
-console.log(`Trace level: ${traceLevel}`);
-console.log(`Input file: ${inputFile}`);
+console.log(`BIESVM______________________`);
+console.log(`Outfile_vm: ${outfile}`);
+console.log(`Errfile_vm: ${errfile}`);
+console.log(`Input file_vm: ${inputFile}`);
 
 const sysout = fs.createWriteStream(outfile, { flags: 'w' });
 const syserr = fs.createWriteStream(errfile, { flags: 'w' });
@@ -35,7 +34,7 @@ console.error = (message) => {
 };
 
 try {
-  test_parser(traceLevel, inputFile);
+  test_parser(inputFile,traceLevel );
 } catch (error) {
   console.error(`Error: ${error.message}`);
 }

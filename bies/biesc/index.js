@@ -21,10 +21,10 @@ const errfile = options.e;
 const inputFile = program.args[0];
 const outputFile = program.args[1];
 
-console.log(`Outfile: ${outfile}`);
-console.log(`Errfile: ${errfile}`);
-console.log(`Input file: ${inputFile}`);
-console.log(`Output file: ${outputFile}`);
+console.log(`Outfile_c: ${outfile}`);
+console.log(`Errfile_c: ${errfile}`);
+console.log(`Input file_c: ${inputFile}`);
+console.log(`Output file_c: ${outputFile}`);
 
 try {
   // Crear streams con manejo de errores

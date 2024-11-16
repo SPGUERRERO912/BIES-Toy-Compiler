@@ -1,7 +1,6 @@
-
-import { Command } from 'commander';
-import { exec }  from 'child_process';
 import path from 'path';
+import { Command } from 'commander';
+import { exec, execSync } from 'child_process';
 
 const program = new Command();
 
@@ -10,17 +9,19 @@ program
     .description("Automatiza la ejecución del comando BIESC")
     .argument("<biesFile>", "Nombre del archivo de entrada BIESC")
     .action((biesFile) => {
-        // Construir rutas absolutas
+        // Ruta al archivo de entrada
         const inputPath = path.resolve("input", biesFile);
-        const outputfile = path.basename(biesFile,'.bies');
+
+        // Nombre base para generar .basm
+        const outputfile = path.basename(biesFile, '.bies');
         const basename = path.resolve("../biesvm/input", outputfile + ".basm");
 
-        // Comando que deseas automatizar
-        const command = `node index.js --o outfile.log --e errfile.log ${inputPath} ${basename}`;
+        const vmPath = path.resolve("../biesvm");
+        // Comando 1: Ejecutar con inputPath y basename
+        const command = `node index.js --o BIESC_OUT.log --e BIESC_ERROR.log ${inputPath} ${basename}`;
+        //console.log("Comando para procesar entrada:", command);
+        const commandVM = `node index.js --o BIESVM_OUT.log --e BIESVM_ERROR.log --trace 0 ${basename}`;
 
-        //console.log(`Ejecutando: ${command}`);
-
-        // Ejecutar el comando
         exec(command, (error, stdout, stderr) => {
             if (error) {
                 console.error(`Error: ${error.message}`);
@@ -30,8 +31,12 @@ program
                 console.error(`Stderr: ${stderr}`);
                 return;
             }
-            console.log(`Output\n${stdout}`);
+            console.log(`BIESC_______________________`);
+            console.log(`${stdout}`);
         });
+        execSync(commandVM, { cwd: vmPath, stdio: 'inherit' });
+
+     
     });
 
 program.parse();

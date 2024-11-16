@@ -30,15 +30,26 @@ printArgument
     ;
 
 functionExpression
-    : '(' (ID (',' ID)*)? ')' '=>' statement
+    : (ID '=>')+ statement                      // Permite lambdas anidadas sin paréntesis
+    | '(' (ID (',' ID)*)? ')' '=>' statement     // Permite lambdas con paréntesis y varios parámetros
     ;
 
 functionCall
-    : ID '(' (expression (',' expression)*)? ')'
+    : ID '(' (expression (',' expression)*)? ')' ( '(' (expression (',' expression)*)? ')' )*
     ;
 
 valueExpression
     : expression
+    | arrayLiteral                             
+    | input 
+    ;
+
+input
+    : 'input' '(' STRING ')'                    
+    ;
+
+arrayLiteral
+    : '[' (expression (',' expression)*)? ']'   
     ;
 
 expression
@@ -58,10 +69,22 @@ expression
     | '!' expression                    # not
     | '(' expression ')'                # parens
     | functionExpression                # function
+    | ifExpression                      # ifExpr
+    | primary '[' expression ']'        # indexAccess
     | INT                               # intLiteral
     | FLOAT                             # floatLiteral
     | STRING                            # stringLiteral
     | ID                                # variable
+    ;
+
+primary
+    : ID                                // variable
+    | arrayLiteral                      // array literal
+    | '(' expression ')'                // parens
+    ;
+
+ifExpression
+    : 'if' '(' expression ')' 'then' expression 'else' expression
     ;
 
 ID    : [a-zA-Z_][a-zA-Z0-9_]* ;
@@ -69,4 +92,4 @@ INT   : [0-9]+ ;
 FLOAT : [0-9]+ '.' [0-9]+ ;
 STRING: '"' (~["\r\n])* '"' ;
 WS    : [ \t\r\n]+ -> skip ;
-COMMENT : '//' ~[\r\n]* -> skip ; 
+COMMENT : '//' ~[\r\n]* -> skip ;
