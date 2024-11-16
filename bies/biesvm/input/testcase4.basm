@@ -1,0 +1,56 @@
+$FUN $0 args : 0 parent : $0
+LDV "hello world dlrow olleh"
+BST 0 0 ;guardar undefined
+LDF $1 ;guardamos dolar 1
+BST 0 1
+BLD 0 1
+APP 1 ;cargamos funcion que calcula el largo
+PRN
+HLT
+$END $0
+
+$FUN $1 args:1 parent: $0 
+LDF $2
+APP 1
+BST 0 0
+LDV 0
+BST 0 1
+LDV ""
+BST 0 2
+BLD 0 0
+BLD 0 1
+GTE
+BF +11 ;se sale
+BLD 0 0
+LDV 1
+SUB ; --
+BST 0 0
+BLD 0 2
+BLD 1 0
+BLD 0 0
+STK
+CAT
+BST 0 2
+BR -15
+BLD 0 2
+RET
+$END $1
+
+$FUN $2 args:1 parent: $1 ;reutilizamos la funcion del testcase 3 para obtener el largo de la hilera
+LDV 1
+BST 0 0 ;inicializa length
+; Inicio de bucle
+BLD 2 0 ;carga a pila la hilera
+BLD 0 0 ;carga a pila el length
+STK     ; toma el k-ésimo elemento , basado en el length(empieza tomando el k-1, se asume que al menos la hilera no es vacía)
+SNT     ;verifica que no sea null
+BF +5    ;si es null, sale del loop
+BLD 0 0 ;cargar el length
+LDV 1   ; ++
+ADD     ; se le suma 1(length++)
+BST 0 0 ;actualiza el length
+BR -10  ;regresa al inicio del loop
+;Fin del loop
+BLD 0 0  ;carga el valor del length en la pila para imprimirlo
+RET
+$END $2

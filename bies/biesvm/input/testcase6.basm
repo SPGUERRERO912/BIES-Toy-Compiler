@@ -1,0 +1,77 @@
+$FUN $0 args:1 parent:$0
+LDF $1
+BST 0 0
+LDV [1,2,3,4,3,2,1]
+BST 0 1
+BLD 0 0
+APP 1
+PRN
+HLT
+$END $0
+
+
+$FUN $1 args:1 parent: $0
+LDF $2
+APP 1
+BST 0 0         ; almacena lista.lenght // 5
+LDV 0
+BST 0 1         ; inicio = 0
+BLD 0 0
+LDV 1
+SUB
+BST 0 2         ; fin = lista.lenght - 1 // 4
+
+BLD 0 1           ; Cargar inicio
+BLD 0 2           ; Cargar fin
+LT                ; Comparar inicio < fin
+BF +21            ; Si inicio >= fin, salir del bucle (salta al final)
+
+; Comparar lista[inicio] y lista[fin]
+BLD 1 1           ; Cargar lista
+BLD 0 1           ; Cargar inicio
+LTK               ; Obtener lista[inicio]
+BST 0 3           ; Guardar en temp 3
+
+BLD 1 1           ; Cargar lista
+BLD 0 2           ; Cargar fin
+LTK               ; Obtener lista[fin]
+BLD 0 3           ; Cargar temp 3
+NEQ               ; Comparar lista[inicio] != lista[fin]
+BT +9                
+
+; Actualizar `inicio++` y `fin--`
+LDV 1             ; Cargar constante 1
+BLD 0 1           ; Cargar inicio
+ADD               ; inicio++
+BST 0 1           ; actualizar inicio
+
+LDV 1             ; Cargar constante 1
+BLD 0 2           ; Cargar fin
+SUB               ; fin--
+BST 0 2           ; actualizar fin
+BR -23            ; Volver al inicio del ciclo
+
+LDV 0             ;Si no es palindrome
+RET
+
+LDV 1             ; Si es palíndromo, retorna `true`
+RET
+$END $1
+
+
+$FUN $2 args:1 parent:$1
+LDV 1
+BST 0 0
+BLD 2 1
+BLD 0 0
+LTK
+LNT
+BT +5
+BLD 0 0
+LDV 1
+ADD
+BST 0 0
+BR -10
+BLD 0 0
+RET
+$END $2

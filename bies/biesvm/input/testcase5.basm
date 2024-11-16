@@ -1,0 +1,95 @@
+$FUN $0 args : 0 parent : $0
+LDF $1
+BST 0 0
+
+LDV "hola mundo"
+BST 0 1
+
+LDV "mundo"
+BST 0 2
+
+BLD 0 0
+APP 2
+PRN
+HLT
+$END $0
+
+$FUN $1 args : 2 parent : $0
+BLD 1 1
+BST 0 0         ;guarda la hilera
+BLD 1 2
+BST 0 1         ;guarda la subhilera
+LDF $2
+APP 1
+BST 0 2         ;guarda hilera.lenght
+LDF $3
+APP 1
+BST 0 3         ;guarda subhilera.lenght
+
+LDV 0
+BST 0 4         ;guarda i=0
+;LOOP
+BLD 0 2
+BLD 0 3
+SUB
+BLD 0 4
+GTE
+BF +15          ;salida del loop
+BLD 0 0
+BLD 0 4
+SRK
+BLD 0 1
+EQ
+BF +4           ;si es falso reinicio del loop
+BLD 0 4
+LDV 1
+ADD
+RET
+BLD 0 4
+LDV 1
+ADD
+BST 0 4
+BR -21
+LDV -1
+RET
+$END $0
+
+
+$FUN $2 args:1 parent: $1     ;funcion para cargar el primer lenght
+LDV 1
+BST 0 0 
+; Inicio de bucle
+BLD 2 1 ;carga a pila la hilera
+BLD 0 0 ;carga a pila el length
+STK
+SNT
+BF +5
+BLD 0 0 
+LDV 1
+ADD
+BST 0 0 
+BR -10
+;Fin del loop
+BLD 0 0
+RET
+$END $2
+
+
+$FUN $3 args:1 parent: $1     ;funcion para cargar el segundo lenght
+LDV 1
+BST 0 0 
+; Inicio de bucle
+BLD 2 2 ;carga a pila la hilera
+BLD 0 0 ;carga a pila el length
+STK
+SNT
+BF +5
+BLD 0 0 
+LDV 1
+ADD
+BST 0 0 
+BR -10
+;Fin del loop
+BLD 0 0
+RET
+$END $3

@@ -1,0 +1,70 @@
+$FUN $0 args : 1 parent : $0
+LDV 82
+BST 0 0
+LDF $1
+BST 0 1
+BLD 0 1
+APP 1
+PRN
+HLT
+$END $0
+
+$FUN $1 args : 1 parent : $0
+BLD 1 0
+LDV 0
+EQ
+BT +38
+LDV 0.0000000001
+BST 0 0
+LDF $2
+BST 0 1
+BLD 1 0 ;n
+BST 0 2
+BLD 0 2
+BST 0 3 ;approx
+BLD 0 2
+BLD 0 3
+DIV ;revisar que sea n / approx
+BLD 0 3
+ADD
+LDV 0.5
+MUL ;better_approx
+BST 0 4
+BLD 0 4 
+BLD 0 3
+SUB ; better - approx
+BST 0 5 ;guardar better_approx - approx para mandarlo a abs
+BLD 0 1
+APP 1
+BLD 0 0
+LTE
+BT +11 ;se sale del ciclo porque abs <= precision
+BLD 0 4
+BST 0 3
+BLD 0 2
+BLD 0 3
+DIV ;revisar que sea n / approx
+BLD 0 3
+ADD
+LDV 0.5
+MUL ;better_approx
+BST 0 4
+BR -20
+BLD 0 4
+RET
+LDV "NaN"
+RET
+$END $1
+
+; Math.abs()
+$FUN $2 args:1 parent:$1 
+BLD 1 5;
+LDV 0
+LT
+BT +2
+BLD 1 5
+BR +2
+BLD 1 5
+NEG
+RET
+$END $2

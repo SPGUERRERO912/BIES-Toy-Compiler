@@ -1,0 +1,22 @@
+
+$FUN $0 args : 0 parent : $0 
+LDV 5
+BST 0 0
+LDF $1
+APP 1   
+PRN     
+HLT     
+$END $0
+
+$FUN $1 args : 1 parent : $0
+BLD 1 0
+LDV 0
+EQ
+BT +9         ; retorna 0 si n ==0
+BLD 1 0
+LDV 1
+SUB
+LDF $1
+APP 1
+RET     
+$END $1

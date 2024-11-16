@@ -1,0 +1,27 @@
+; Author Joel Ramirez, Marco Leandro, Sebastian Peñaranda, Valentina Hernández
+$FUN $0 args : 0 parent : $0 
+LDF $1  ; cargamos la funcion a $1
+BST 0 0 ; guardamos la funcion 
+LDV 667 ; x = 667 
+BST 0 1 ; guardamos x
+BLD 0 0 ; recuperamos la funcion para ejecutarla
+APP 1   ; $1(x) | se especifica que reciba 2 argumentos
+PRN     ; print(666) del resultado de $1
+HLT     ; finalización del programa
+$END $0
+
+$FUN $1 args : 1 parent : $0
+LDV 0   ; cargamos el valor de i
+BST 0 0 ; almacenamos i = 0
+BLD 1 1 ; cargamos la variable 'x'
+BLD 0 0 ; cargamos la variable i = 0
+GT      ; hacemos la comparacion 'x > i'
+BF +5   ; en el caso de que sea falso carga 'i'
+LDV 1   ; cargamos 'x'
+BLD 0 0 ; cargamos i
+ADD     ; i = i + 1
+BST 0 0 ; guardamos i 
+BR -9   ; volver a donde se cargan x e i
+BLD 0 0 ; carga i para retornarlo
+RET     ; retornar resultado
+$END $1

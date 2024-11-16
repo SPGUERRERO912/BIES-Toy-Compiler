@@ -1,0 +1,29 @@
+$FUN $0 args : 0 parent : $0
+LDV "Undefined"
+BST 0 0
+LDF $1
+BST 0 1
+BLD 0 1
+APP 1
+PRN
+HLT
+$END $0
+
+$FUN $1 args:1 parent: $0
+LDV 1
+BST 0 0 ;inicializa length
+; Inicio de bucle
+BLD 1 0 ;carga a pila la hilera
+BLD 0 0 ;carga a pila el length
+STK     ; toma el k-ésimo elemento , basado en el length(empieza tomando el k-1, se asume que al menos la hilera no es vacía)
+SNT     ;verifica que no sea null
+BF +5    ;si es null, sale del loop
+BLD 0 0 ;cargar el length
+LDV 1   ; ++
+ADD     ; se le suma 1(length++)
+BST 0 0 ;actualiza el length
+BR -10  ;regresa al inicio del loop
+;Fin del loop
+BLD 0 0  ;carga el valor del length en la pila para imprimirlo
+RET
+$END $1

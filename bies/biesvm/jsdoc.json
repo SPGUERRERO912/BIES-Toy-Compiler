@@ -1,0 +1,15 @@
+{
+  "source": {
+    "include": ["src"],
+    "includePattern": ".+\\.mjs$",
+    "excludePattern": "(node_modules|\\.git)"
+  },
+  "opts": {
+    "destination": "./docs",
+    "recurse": true
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  }
+}
