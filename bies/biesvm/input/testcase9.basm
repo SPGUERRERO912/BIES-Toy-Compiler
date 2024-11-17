@@ -1,16 +1,62 @@
-
-$FUN $0 args : 0 parent : $0 
-LDV 5
+$FUN $0 args:0 parent:$0
+LDV 10
 BST 0 0
 LDF $1
-APP 1   
-PRN     
-HLT     
+APP 1
+BST 0 0
+BLD 0 0 
+LDV -1 
+EQ
+BT +3
+LDF $2
+APP 1
+BR +1
+BLD 0 0
+PRN
+HLT
 $END $0
 
-$FUN $1 args : 1 parent : $0
+$FUN $1 args:1 parent:$0
+BLD 1 0 
+LDV 0 
+LT
+BT +12
 BLD 1 0
-LDV 5
+LDV 0
 EQ
-RET     
+BST 0 0
+BLD 1 0
+LDV 1
+EQ
+BLD 0 0
+OR
+BF +4            
+LDV 1
+BR +1
+LDV -1           
+BR +1
+BLD 1 0
+RET
 $END $1
+
+$FUN $2 args:2 parent:$0
+LDV 1           ; res = 1
+BST 0 0         ; save 'res'
+LDV 2           ; i = 2
+BST 0 1         ; save 'i'
+BLD 0 1         ; load 'i' | start loop
+BLD 1 0         ; load 'arg'
+LTE             ; (i < arg)?
+BF +9           
+BLD 0 0         ; load 'res'
+BLD 0 1         ; load 'i'
+MUL             ; (res * i)
+BST 0 0         ; res = (res * i)
+BLD 0 1         ; load 'i'
+LDV 1           ; ++
+ADD              
+BST 0 1         ; i++
+BR -13        
+BLD 0 0
+RET
+$END $2

@@ -1,0 +1,47 @@
+$FUN $0 args:1 parent:$0
+LDF $1
+BST 0 0
+LDV 20
+BST 0 1
+BLD 0 0
+APP 1
+PRN
+HLT
+$END $0
+
+$FUN $1 args:1 parent:$0
+LDV 0           ; a=0
+BST 0 0         ; save 'a'
+LDV 1           ; b=1
+BST 0 1         ; save 'b'
+LDV 0           ; temp = 0
+BST 0 2         ; save 'temp'
+LDV 2           ; i = 2
+BST 0 3         ; save 'i'
+BLD 0 3
+BLD 1 1
+LTE
+BF +13           ; Salida del loop
+BLD 0 0         ; carga a
+BLD 0 1         ; carga b
+ADD             ; a+b
+BST 0 2         ; temp = a + b
+BLD 0 1         ; carga b
+BST 0 0         ; a = b;
+BLD 0 2         ; carga temp
+BST 0 1         ; b = temp
+BLD 0 3         ; carga i
+LDV 1           ; ++
+ADD             ; i++
+BST 0 3         ;actualiza i
+BR -17  
+BLD 1 1         ; carga n
+LDV 0           ; carga 0
+EQ
+BF +3 
+BLD 0 0        ; carga a para devolver
+BR +2 
+NOP
+BLD 0 1        ; Devuelve b
+RET
+$END $1

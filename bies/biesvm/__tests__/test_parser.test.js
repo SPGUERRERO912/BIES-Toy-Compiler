@@ -17,9 +17,11 @@ describe('BASM VM Test Cases', () => {
     { input: './input/testcase4.basm', expected: './input/expected_outputs/expected_output4.txt' },
     { input: './input/testcase5.basm', expected: './input/expected_outputs/expected_output5.txt' },
     { input: './input/testcase6.basm', expected: './input/expected_outputs/expected_output6.txt' },
+    { input: './input/testcase7.basm', expected: './input/expected_outputs/expected_output7.txt' },
     { input: './input/testcase8.basm', expected: './input/expected_outputs/expected_output8.txt' },
     { input: './input/testcase9.basm', expected: './input/expected_outputs/expected_output9.txt' },
-    { input: './input/testcase10.basm', expected: './input/expected_outputs/expected_output10.txt' }
+    { input: './input/testcase10.basm', expected: './input/expected_outputs/expected_output10.txt'},
+    { input: './input/testcase11.basm', expected: './input/expected_outputs/expected_output11.txt'}
   ];
 
   testCases.forEach(({ input, expected }, index) => {
