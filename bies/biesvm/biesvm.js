@@ -1,5 +1,11 @@
 #!/usr/bin/env node
-
+/**
+ * @author Joel Ramirez
+ * @author Sebastian Peñaranda
+ * @author Marco Leandro
+ * @version 1.0
+ * @since 2024-11-16
+ */
 import path from 'path';
 import { Command } from 'commander';
 import { exec } from 'child_process';

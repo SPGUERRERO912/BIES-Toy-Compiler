@@ -1,3 +1,11 @@
+/**
+ * @author Joel Ramirez
+ * @author Sebastian Peñaranda
+ * @author Marco Leandro
+ * @version 1.0
+ * @since 2024-11-16
+ */
+
 import { Command } from 'commander';
 import fs from 'fs';
 import test_parser from './src/printVisitor.mjs';
