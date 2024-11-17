@@ -10,7 +10,9 @@ LDV 4 ; cargar entero 4
 MUL ; Multiplicar
 LDV 3 ; cargar entero 3
 LDV 1 ; cargar entero 1
+SWP ;invirtiendo orden de la operacion
 ADD ; Sumar entero
+LDV 4 ; cargar entero 4
 DIV ; Dividir
 BST 0 0 ; guardamos version
 LDF $2

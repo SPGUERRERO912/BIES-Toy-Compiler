@@ -328,6 +328,7 @@ class BytecodeVisitor extends BiesVisitor {
             '<': 'LT',
             '<=': 'LTE',
             '==': 'EQ',
+            '!=': 'NEQ',
         };
 
         // Agregar la instrucción de comparación

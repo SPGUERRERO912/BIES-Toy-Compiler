@@ -19,6 +19,7 @@ $END $1
 $FUN $2 args : 0 parent : $1
 LDV 20 ; cargar entero 20
 LDV 20 ; cargar entero 20
+SWP ;invirtiendo orden de la operacion
 ADD ; Sumar entero
 RET ; Fin de la función
 $END $2
