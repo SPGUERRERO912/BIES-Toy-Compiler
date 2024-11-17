@@ -289,7 +289,7 @@ class BytecodeVisitor extends BiesVisitor {
                 this.replaceIdentifier(functionData.node, paramId, argValue);
             });
         } else if (functionData.type === 'nestedLambda') {
-            functionData.lambdaIds.forEach((idList, level) => {
+            functionData.lambdaIds.forEach((idList) => {
                 idList.forEach((id, index) => {
                     const argValue = args[index];
                     this.replaceIdentifier(functionData.node.functionExpression().statement().expression(), id, argValue);
