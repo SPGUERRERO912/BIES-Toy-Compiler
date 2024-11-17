@@ -435,23 +435,23 @@ export class VM {
       [
         'LEN',
         () => {
-          let lengthOf = this.register.pop()
-          if(typeof lengthOf === "string" || Array.isArray(lengthOf)) { 
-            this.register.push(lengthOf.length)   
+          let lengthOf = this.register.pop();
+          if (typeof lengthOf === 'string' || Array.isArray(lengthOf)) {
+            this.register.push(lengthOf.length);
           }
-        }
+        },
       ],
       [
         'POW',
         () => {
-          let exponent = this.register.pop()
-          let base = this.register.pop()
+          let exponent = this.register.pop();
+          let base = this.register.pop();
 
-          if(typeof base ==='number' && typeof exponent === 'number'){
-            this.register.push(Math.pow(base,exponent));
+          if (typeof base === 'number' && typeof exponent === 'number') {
+            this.register.push(Math.pow(base, exponent));
           }
-        }
-      ]
+        },
+      ],
     ]);
 
     const action = actions.get(parts[0]);
