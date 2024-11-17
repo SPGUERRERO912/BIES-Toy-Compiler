@@ -454,7 +454,7 @@ class PrintVisitor extends biesvmVisitor {
     this.instructions.push('POW');
     return null;
   }
-  visitLenInstruction(ctx) {
+  visitLenInstruction() {
     this.trace('Add Instruction: LEN');
     this.instructions.push('LEN');
     return null;
