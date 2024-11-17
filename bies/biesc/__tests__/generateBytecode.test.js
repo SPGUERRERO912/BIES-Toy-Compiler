@@ -1,3 +1,11 @@
+/**
+ * @author Joel Ramirez
+ * @author Sebastian Peñaranda
+ * @author Marco Leandro
+ * @version 1.0
+ * @since 2024-11-16
+ */
+
 import fs from 'fs';
 import generateBytecode from '../src/printVisitor_bies.mjs';
 import { jest } from '@jest/globals';

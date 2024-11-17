@@ -13,12 +13,8 @@ program
     .action((basmFile) => {
         // Ruta al archivo de entrada
         const inputPath = path.resolve("input", basmFile);
-
-
-
         const commandVM = `node index.js --o BIESVM_OUT.log --e BIESVM_ERROR.log --trace 0 ${inputPath}`;
 
-        // Ejecutar el primer comando y esperar a que termine
         exec(commandVM, (error, stdout, stderr) => {
             if (error) {
                 console.error(`Error en el comando BIESVM: ${error.message}`);

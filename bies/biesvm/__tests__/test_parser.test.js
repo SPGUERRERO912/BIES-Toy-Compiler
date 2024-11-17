@@ -1,3 +1,11 @@
+/**
+ * @author Joel Ramirez
+ * @author Sebastian Peñaranda
+ * @author Marco Leandro
+ * @version 1.0
+ * @since 2024-11-16
+ */
+
 import fs from 'fs';
 import test_parser from '../src/printVisitor.mjs';
 import { jest } from '@jest/globals';
@@ -28,13 +36,10 @@ describe('BASM VM Test Cases', () => {
     test(`Test case ${index++}`, () => {
         let originalConsoleLog = console.log; 
         console.log = jest.fn();
-        //console.log(`Captured output for test case ${index + 1}:`, console.log.mock.calls);
-       // originalConsoleLog('Input:', JSON.stringify(input, null, 2));
         test_parser(input);
         
         let output = console.log.mock.calls.map(call => call[0]).join('\n');
         
-
         console.log = originalConsoleLog;
 
         originalConsoleLog('Output:', JSON.stringify(output, null, 2));

@@ -1,3 +1,11 @@
+/**
+ * @author Joel Ramirez
+ * @author Sebastian Peñaranda
+ * @author Marco Leandro
+ * @version 1.0
+ * @since 2024-11-16
+ */
+
 import fs from 'fs';
 import antlr4 from 'antlr4';
 

@@ -1,9 +1,14 @@
+/**
+ * @author Joel Ramirez
+ * @author Sebastian Peñaranda
+ * @author Marco Leandro
+ * @version 1.0
+ * @since 2024-11-16
+ */
+
 import { Command } from 'commander';
 import fs from 'fs';
 import generateBytecode from './src/printVisitor_bies.mjs'
-
-//generateBytecode('../biesc/input/Version_Compleja_0.bies', '../biesvm/input/Version_Compleja_0.basm');
-
 
 const program = new Command();
 
@@ -50,7 +55,7 @@ try {
     syserr.write(message + '\n');
   };
 
-  // Mensajes informativos en el log de salida
+  // Mensajes en el log de salida
   console.log('Iniciando generación de bytecode...');
   console.log(`Archivo de entrada: ${inputFile}`);
   console.log(`Archivo de salida: ${outputFile}`);
@@ -62,7 +67,7 @@ try {
   console.log(`El bytecode se ha guardado en "${outputFile}".`);
 
   syserr.write('No se registraron errores durante la ejecución.\n');
-  sysout.end(); // Cerrar el flujo de salida al finalizar
+  sysout.end();
   syserr.end();
 } catch (error) {
   console.error(`Error durante la ejecución: ${error.message}`);
