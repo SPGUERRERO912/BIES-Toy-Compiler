@@ -24,11 +24,6 @@ Se utilizó apoyo de ChatGPT para la construcción del proyecto en Node.js, espe
     ```bash
     biesc file.bies
     ```
-    - **Nota Importante:**
-    - `BIESC_OUT` :    Proporciona detalles acerca de la ejecución del bytecode.
-    - `BIESC_ERROR` :  Proporciona detalles por si llegan a existir errores.
-    - `BIESVM_OUT` :   Proporciona el bytecode compilado.
-    - `BIESVM_ERROR` : Proporciona detalles por si llegan a existir errores.
 
 4. Para la ejecución individual de un archivo **.basm**.
     - Hay que navegar a la ruta **biesc**:
@@ -39,3 +34,9 @@ Se utilizó apoyo de ChatGPT para la construcción del proyecto en Node.js, espe
     ```bash
     biesvm file.basm
     ```
+
+ ### **Nota Importante:**
+    - `BIESC_OUT`   =  Proporciona detalles acerca de la ejecución del bytecode en biesc.
+    - `BIESC_ERROR` =  Proporciona detalles por si llegan a existir errores en biesc.
+    - `BIESVM_OUT`  =  Proporciona el bytecode compilado en biesvm.
+    - `BIESVM_ERROR`=  Proporciona detalles por si llegan a existir errores en biesvm.

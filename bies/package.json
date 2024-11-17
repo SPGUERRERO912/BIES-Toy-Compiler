@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "buildC":"cd biesc && npm run build",
     "buildVM":"cd biesvm && npm run build",
     "buildGlobal":"npm run buildVM && npm run buildC"
   },
   "keywords": [],
-  "author": "",
+  "authors": "Joel Ramirez, Marco Leandro, Sebastian Peñaranda.",
   "license": "ISC",
   "description": ""
 }
