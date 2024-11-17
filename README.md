@@ -16,7 +16,7 @@ Se utilizó apoyo de ChatGPT para la construcción del proyecto en Node.js, espe
    npm run buildGlobal
 ```
 3. Para la ejecución individual de un archivo **.bies**.
-    - Hay que navegar a la ruta **bies**:
+    - Hay que navegar a la ruta **biesc**:
     ```bash
     cd biesc
     ```
@@ -29,3 +29,13 @@ Se utilizó apoyo de ChatGPT para la construcción del proyecto en Node.js, espe
     - `BIESC_ERROR` :  Proporciona detalles por si llegan a existir errores.
     - `BIESVM_OUT` :   Proporciona el bytecode compilado.
     - `BIESVM_ERROR` : Proporciona detalles por si llegan a existir errores.
+
+4. Para la ejecución individual de un archivo **.basm**.
+    - Hay que navegar a la ruta **biesc**:
+    ```bash
+    cd biesvm
+    ```
+    - Y se ejecuta el comando:
+    ```bash
+    biesvm file.basm
+    ```

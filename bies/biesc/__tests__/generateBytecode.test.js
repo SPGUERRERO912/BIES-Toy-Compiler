@@ -40,7 +40,23 @@ describe('BASM C Test Cases', () => {
             input: './input/Version_Compleja_4.bies',
             output: '../biesvm/input/Version_Compleja_4.basm', 
             expected: './input/expected_outputs/expected_output6.txt' 
+        },
+        { 
+            input: './input/Version_Compleja_6.bies',
+            output: '../biesvm/input/Version_Compleja_6.basm', 
+            expected: './input/expected_outputs/expected_output8.txt' 
+        },
+        { 
+            input: './input/Version_Compleja_7.bies',
+            output: '../biesvm/input/Version_Compleja_7.basm', 
+            expected: './input/expected_outputs/expected_output9.txt' 
+        },
+        { 
+            input: './input/Version_Compleja_8.bies',
+            output: '../biesvm/input/Version_Compleja_8.basm', 
+            expected: './input/expected_outputs/expected_output10.txt' 
         }
+
     ];
 
     testCases.forEach(({ input, output, expected }, index) => {
