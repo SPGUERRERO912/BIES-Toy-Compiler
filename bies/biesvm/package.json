@@ -10,7 +10,7 @@
     "docs": "jsdoc -c jsdoc.json",
     "build": "npm install commander && npm install && npm run prepare",
     "antlr": "cd grammar && java -jar \"../lib/antlr-4.13.1-complete.jar\" -Dlanguage=JavaScript biesvm.g4 -visitor",
-    "prepare": "npm run lint && npm run format && npm run test && npm run docs && node index.js --o salida.log --e errores.log --trace 0 input/testcase1.basm"
+    "prepare": "npm run lint && npm run format && npm run antlr && npm run docs && npm run test"
   },
   "keywords": [],
   "author": "",

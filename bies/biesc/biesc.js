@@ -1,6 +1,9 @@
+#!/usr/bin/env node
+
 import path from 'path';
 import { Command } from 'commander';
-import { exec, execSync } from 'child_process';
+import { exec } from 'child_process';
+import { spawnSync } from 'child_process';
 
 const program = new Command();
 
@@ -15,28 +18,38 @@ program
         // Nombre base para generar .basm
         const outputfile = path.basename(biesFile, '.bies');
         const basename = path.resolve("../biesvm/input", outputfile + ".basm");
-
         const vmPath = path.resolve("../biesvm");
-        // Comando 1: Ejecutar con inputPath y basename
+
+      
         const command = `node index.js --o BIESC_OUT.log --e BIESC_ERROR.log ${inputPath} ${basename}`;
-        //console.log("Comando para procesar entrada:", command);
         const commandVM = `node index.js --o BIESVM_OUT.log --e BIESVM_ERROR.log --trace 0 ${basename}`;
 
+        // Ejecutar el primer comando y esperar a que termine
         exec(command, (error, stdout, stderr) => {
             if (error) {
-                console.error(`Error: ${error.message}`);
+                console.error(`Error en el comando BIESC: ${error.message}`);
                 return;
             }
             if (stderr) {
-                console.error(`Stderr: ${stderr}`);
+                console.error(`Stderr en BIESC: ${stderr}`);
                 return;
             }
-            console.log(`BIESC_______________________`);
+            console.log("BIESC_______________________");
             console.log(`${stdout}`);
-        });
-        execSync(commandVM, { cwd: vmPath, stdio: 'inherit' });
 
-     
+            // Ejecutar el segundo comando solo si el primero fue exitoso
+            const result = spawnSync(commandVM, {
+                cwd: vmPath,
+                stdio: 'inherit',
+                shell: true,
+            });
+
+            if (result.error) {
+                console.error(`Error al ejecutar BIESVM: ${result.error.message}`);
+            } else {
+                console.log("BIESVM ejecutado con éxito.");
+            }
+        });
     });
 
 program.parse();

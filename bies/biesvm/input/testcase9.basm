@@ -10,13 +10,7 @@ $END $0
 
 $FUN $1 args : 1 parent : $0
 BLD 1 0
-LDV 0
+LDV 5
 EQ
-BT +9         ; retorna 0 si n ==0
-BLD 1 0
-LDV 1
-SUB
-LDF $1
-APP 1
 RET     
 $END $1

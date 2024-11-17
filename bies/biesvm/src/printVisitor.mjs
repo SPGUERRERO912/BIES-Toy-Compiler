@@ -443,7 +443,7 @@ class PrintVisitor extends biesvmVisitor {
   }
 }
 
-function test_parser(input_file,traceLevel = 0) {
+function test_parser(input_file, traceLevel = 0) {
   const input = fs.readFileSync(input_file, 'utf-8');
 
   const chars = new antlr4.InputStream(input);

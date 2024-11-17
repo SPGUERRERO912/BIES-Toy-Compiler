@@ -15,7 +15,7 @@ HLT ; finalización del programa
 $END $0
 $FUN $1 args : 1 parent : $0
 LDV "Testing helloworld Version " ; cargar string "Testing helloworld Version "
-BLD 0 0 ; cargar version
+BLD 1 0 ; cargar version
 CAT ; Concatenar cadenas
 LDV " ***" ; cargar string " ***"
 CAT ; Concatenar cadenas

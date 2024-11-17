@@ -8,12 +8,12 @@
     "lint": "eslint \"src/**/*.mjs\"",
     "format": "prettier --write \"src/**/*.mjs\"",
     "docs": "jsdoc -c jsdoc.json",
-    "build": "npm install commander && npm install && npm run prepare",
+    "build": "npm install commander && npm install && npm install -g . && npm run prepare",
     "antlr": "cd grammar && java -jar \"../lib/antlr-4.13.1-complete.jar\" -Dlanguage=JavaScript biesc.g4 -visitor",
-    "prepare": "npm run lint && npm run format && npm run test && npm run docs"
+    "prepare": "npm run lint && npm run format && npm run antlr && npm run docs && npm run test "
   },
   "bin": {
-    "biesc": "./biesc.js"
+    "biesc": "biesc.js"
   },
   "keywords": [],
   "author": "",
