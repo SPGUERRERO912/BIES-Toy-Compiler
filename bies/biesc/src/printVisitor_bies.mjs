@@ -809,9 +809,10 @@ class BytecodeVisitor extends BiesVisitor {
 
 }
 
-function generateBytecode(inputFile, outputFile) {
-    const input = new antlr4.FileStream(inputFile);
-    const lexer = new BiesLexer(input);
+function generateBytecode(input_File, outputFile) {
+    const input = fs.readFileSync(input_File, 'utf-8');
+    const chars = new antlr4.InputStream(input);
+    const lexer = new BiesLexer(chars);
     const tokens = new antlr4.CommonTokenStream(lexer);
     const parser = new BiesParser(tokens);
     const tree = parser.program();

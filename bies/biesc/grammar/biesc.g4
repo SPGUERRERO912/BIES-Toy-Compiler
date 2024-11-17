@@ -8,7 +8,7 @@ statement
     : varDeclaration
     | printStatement
     | functionCall 
-    | expression
+    | expression 
     ;
 
 varDeclaration
@@ -41,15 +41,19 @@ functionCall
 valueExpression
     : expression
     | arrayLiteral                             
-    | input 
+    | inputExpression 
     ;
 
-input
+inputExpression
     : 'input' '(' STRING ')'                    
     ;
 
 arrayLiteral
     : '[' (expression (',' expression)*)? ']'   
+    ;
+
+lenExpression 
+    : 'len' '(' expression ')'
     ;
 
 expression
@@ -75,6 +79,7 @@ expression
     | FLOAT                             # floatLiteral
     | STRING                            # stringLiteral
     | ID                                # variable
+    | lenExpression                     # len
     ;
 
 primary
