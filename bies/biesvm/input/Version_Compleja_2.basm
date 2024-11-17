@@ -1,7 +1,8 @@
 ; Author Joel Ramirez, Marco Leandro, Sebastian Peñaranda, Valentina Hernández
 $FUN $0 args : 0 parent : $0
-LDV 666 ; cargar entero 666
 LDV 664 ; cargar entero 664
+LDV 666 ; cargar entero 666
+SWP ;invirtiendo orden de la operacion
 SUB ; Restar
 BST 0 0 ; guardamos version
 LDF $1

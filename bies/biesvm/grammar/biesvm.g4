@@ -54,7 +54,9 @@ instruction
     | BR signedInt                                 # BrInstruction      
     | BT signedInt                                 # BtInstruction      
     | BF signedInt                                 # BfInstruction      
-    | NOP                                          # NopInstruction     
+    | NOP                                          # NopInstruction
+    | LEN                                          # LenInstruction
+    | POW                                          # PowInstruction     
     ;
 
 // Directivas del linker/loader
@@ -109,6 +111,8 @@ BR   : 'BR';
 BT   : 'BT';
 BF   : 'BF';
 NOP  : 'NOP';
+LEN  : 'LEN';
+POW  : 'POW'; 
 
 // Definir los token básicos
 DOLLAR  : '$';

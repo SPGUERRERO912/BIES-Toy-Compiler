@@ -449,6 +449,16 @@ class PrintVisitor extends biesvmVisitor {
     }
     return null;
   }
+  visitPowInstruction() {
+    this.trace('Add Instruction: POW');
+    this.instructions.push('POW');
+    return null;
+  }
+  visitLenInstruction(ctx) {
+    this.trace('Add Instruction: LEN');
+    this.instructions.push('LEN');
+    return null;
+  }
 }
 
 function test_parser(input_file, traceLevel = 0) {

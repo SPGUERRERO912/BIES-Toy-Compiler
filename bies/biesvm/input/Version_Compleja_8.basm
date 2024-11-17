@@ -18,7 +18,8 @@ BLD 0 0 ; cargar a
 LDV 0 ; cargar entero 0
 LTK ; extraer valor de la lista
 LDV 2 ; cargar entero 2
-ADD ; Sumar entero
+SWP ;invirtiendo orden de la operacion
+ADD ; Sumar
 LTK ; extraer valor de la lista
 PRN ; print valor cargado
 RET ; Fin de la función
