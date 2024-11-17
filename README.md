@@ -4,7 +4,7 @@
 - Marco Leandro Chacón 118510803
 - Sebastián Peñaranda Guerrero 118440262
 
-Se utilizó apoyo de ChatGPT para la construcción del proyecto en Node.js, específicamente para integrar herramientas como Jest, Lint y Prettier. Además, de para obtener soporte en tareas relacionadas con la consola.
+Durante el desarrollo del proyecto en Node.js, se utilizó el apoyo de ChatGPT como herramienta de consulta para la integración de utilidades clave como Jest, Lint y Prettier. Además, se empleó para obtener soporte en tareas relacionadas con el uso de la consola, gramática y para el diseño de funciones auxiliares que complementan las funcionalidades principales del evaluador. Finalmente, se aprovechó su capacidad como recurso de aprendizaje para comprender y aplicar algoritmos como el Shunting Yard de Dijkstra en el flujo del proyecto.
 ## Proceso de Build Automatizado Completo
 
 1. Clona el repositorio y navega a la **raíz (bies)** del proyecto.
