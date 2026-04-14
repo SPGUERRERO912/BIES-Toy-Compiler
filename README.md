@@ -1,9 +1,4 @@
-# EIF400 II 2024 BIESVM-BIESC 05-3:00 PM - Joel Ramirez Vargas
-### Integrantes del grupo 05 NRC 50994
-- Joel Ramírez Vargas 119020788 [Coordinador]
-- Marco Leandro Chacón 118510803
-- Sebastián Peñaranda Guerrero 118440262
-
+# BIES-Toy-Compiler
 Durante el desarrollo del proyecto en Node.js, se utilizó el apoyo de ChatGPT como herramienta de consulta para la integración de utilidades clave como Jest, Lint y Prettier. Además, se empleó para obtener soporte en tareas relacionadas con el uso de la consola, gramática y para el diseño de funciones auxiliares que complementan las funcionalidades principales del evaluador. Finalmente, se aprovechó su capacidad como recurso de aprendizaje para comprender y aplicar algoritmos como el Shunting Yard de Dijkstra en el flujo del proyecto.
 ## Proceso de Build Automatizado Completo
 
